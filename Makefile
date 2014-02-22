@@ -1,5 +1,5 @@
 CXX=g++
-CPPFLAGS=-std=c++11
+CPPFLAGS=-std=c++11 -Wall
 HEADERS=-Isrc -Iexternals/libserial/src
 LDFLAGS=-Lsrc -Lexternals/libserial/src/.libs
 LDLIBS=-lserial
@@ -7,9 +7,11 @@ LDLIBS=-lserial
 SRCS=$(wildcard src/*.cpp)
 OBJS=$(subst src,obj,$(subst .cpp,.o,$(SRCS)))
 
+all: CPPFLAGS+= -O2
 all: libserial $(OBJS)
 	mkdir -p bin
 	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/*.o
+	strip bin/synthberry
 
 debug: CPPFLAGS+= -D DEBUG -g
 debug: all
