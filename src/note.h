@@ -14,6 +14,6 @@ public:
 private:
     uint8_t pitch;
     uint8_t velocity;
-}
+};
 
 #endif  // NOTE_H

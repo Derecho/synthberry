@@ -3,7 +3,7 @@
 
 SerialMidi::SerialMidi(std::string serialPath) :
     IMidiSource(),
-    serialStream(serialPath),
+    serialStream(serialPath)
 {
     serialStream.SetBaudRate(LibSerial::SerialStreamBuf::BAUD_38400);
     serialStream.SetCharSize(LibSerial::SerialStreamBuf::CHAR_SIZE_8);
@@ -19,6 +19,7 @@ SerialMidi::~SerialMidi()
 
 void SerialMidi::run()
 {
+    /*
     unsigned int pos = 0;
     unsigned int bytesLeft = 0;
     unsigned char buf[16];
@@ -60,4 +61,5 @@ void SerialMidi::run()
             pos++;
         }
     }
+    */
 }

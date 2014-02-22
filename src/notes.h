@@ -15,6 +15,6 @@ public:
 
 private:
     std::vector<Note> notes;
-}
+};
 
 #endif  // NOTES_H

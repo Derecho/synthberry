@@ -9,4 +9,10 @@ After cloning the synthberry repository you need to retrieve the dependencies:
 
     git submodule update --init --recursive
 
-Now you can use synthberry's Makefile.
+Having done that, you can build the source by issuing:
+
+    make
+
+Now you can run synthberry as follows:
+
+    LD_LIBRARY_PATH=externals/libserial/src/.libs bin/synthberry

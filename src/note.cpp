@@ -6,6 +6,10 @@ Note::Note(uint8_t pitch, uint8_t velocity) :
 {
 }
 
+Note::~Note()
+{
+}
+
 uint8_t Note::getPitch()
 {
     return pitch;

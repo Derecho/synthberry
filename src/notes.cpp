@@ -4,6 +4,10 @@ Notes::Notes()
 {
 }
 
+Notes::~Notes()
+{
+}
+
 void Notes::addNote(uint8_t pitch, uint8_t velocity)
 {
     bool present = false;
@@ -17,7 +21,7 @@ void Notes::addNote(uint8_t pitch, uint8_t velocity)
 
 void Notes::removeNote(uint8_t pitch)
 {
-    for(notes::const_iterator it = notes.begin(); it != notes.end(); ++it)
+    for(std::vector<Note>::iterator it = notes.begin(); it != notes.end(); ++it)
         if((*it).getPitch() == pitch)
             notes.erase(it);
 }

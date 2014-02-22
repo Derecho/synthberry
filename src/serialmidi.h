@@ -14,6 +14,6 @@ public:
 
 private:
     LibSerial::SerialStream serialStream;
-}
+};
 
 #endif  // SERIALMIDI_H

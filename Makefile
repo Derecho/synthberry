@@ -1,13 +1,20 @@
 CXX=g++
-CPPFLAGS=-Iexternals/libserial/src
-LDFLAGS=-Lexternals/libserial/src/.libs
+CPPFLAGS=-std=c++11
+HEADERS=-Isrc -Iexternals/libserial/src
+LDFLAGS=-Lsrc -Lexternals/libserial/src/.libs
 LDLIBS=-lserial
 
-all: test
+SRCS=$(wildcard src/*.cpp)
+OBJS=$(subst src,obj,$(subst .cpp,.o,$(SRCS)))
 
-test: libserial
+all: libserial $(OBJS)
 	mkdir -p bin
-	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/test src/test.cpp
+	#$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/*.o
+	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/main.o obj/note.o obj/notes.o obj/serialmidi.o
+
+obj/%.o: src/%.cpp
+	mkdir -p obj
+	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(HEADERS) -o $@ -c $<
 
 libserial:
 	cd externals/libserial; ./configure
