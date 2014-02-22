@@ -11,6 +11,9 @@ all: libserial $(OBJS)
 	mkdir -p bin
 	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/*.o
 
+debug: CPPFLAGS+= -D DEBUG -g
+debug: all
+
 obj/%.o: src/%.cpp
 	mkdir -p obj
 	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(HEADERS) -o $@ -c $<
