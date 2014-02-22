@@ -3,9 +3,9 @@
 
 class IMidiSource
 {
-    public:
-        virtual ~IMidiSource {};
-        virtual void run() = 0;
+public:
+    virtual ~IMidiSource {};
+    virtual void run() = 0;
 }
 
 #endif  // IMIDISOURCE_H

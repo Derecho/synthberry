@@ -7,13 +7,13 @@
 
 class SerialMidi : public IMidiSource
 {
-    public:
-        SerialMidi(std::string serialPath);
-        ~SerialMidi();
-        void run();
+public:
+    SerialMidi(std::string serialPath);
+    ~SerialMidi();
+    void run();
 
-    private:
-        LibSerial::SerialStream serialStream;
+private:
+    LibSerial::SerialStream serialStream;
 }
 
 #endif  // SERIALMIDI_H
