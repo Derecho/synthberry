@@ -25,3 +25,21 @@ void Notes::removeNote(uint8_t pitch)
         if((*it).getPitch() == pitch)
             notes.erase(it);
 }
+
+const std::vector<Note> Notes::getNotes()
+{
+    return notes;
+}
+
+void Notes::registerObserver(INoteObserver *observer)
+{
+    observers.push_back(observer);
+}
+
+void Notes::removeObserver(INoteObserver *observer)
+{
+    for(std::vector<INoteObserver *>::iterator it = observers.begin(); it !=
+            observers.end(); ++it)
+        if((*it) == observer)
+            observers.erase(it);
+}
