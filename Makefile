@@ -9,8 +9,7 @@ OBJS=$(subst src,obj,$(subst .cpp,.o,$(SRCS)))
 
 all: libserial $(OBJS)
 	mkdir -p bin
-	#$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/*.o
-	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/main.o obj/note.o obj/notes.o obj/serialmidi.o
+	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/*.o
 
 obj/%.o: src/%.cpp
 	mkdir -p obj
