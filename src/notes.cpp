@@ -16,7 +16,7 @@ void Notes::addNote(uint8_t pitch, uint8_t velocity)
             present = true;
 
     if(!present) {
-        Note note = Note(pitch, velocity);
+        Note note(pitch, velocity);
         notes.push_back(note);
 
         for(PNoteObserver observer : observers)

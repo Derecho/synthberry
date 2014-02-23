@@ -63,3 +63,8 @@ void SerialMidi::run()
     }
     */
 }
+
+Notes SerialMidi::getNotes()
+{
+    return notes;
+}
