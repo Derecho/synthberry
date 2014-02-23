@@ -14,8 +14,8 @@ public:
     void addNote(uint8_t pitch, uint8_t velocity);
     void removeNote(uint8_t pitch);
     const std::vector<Note> getNotes() const;
-    void registerObserver(PNoteObserver observer);
-    void removeObserver(PNoteObserver observer);
+    void registerObserver(PNoteObserver &observer);
+    void removeObserver(PNoteObserver &observer);
 
 private:
     std::vector<Note> notes;

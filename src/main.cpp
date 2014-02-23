@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 #ifdef DEBUG
     PNoteObserver debugObserver(new DebugObserver);
     midi->getNotes().registerObserver(debugObserver);
+    LOG("DebugObserver registered");
 #endif
     midi->run();
 

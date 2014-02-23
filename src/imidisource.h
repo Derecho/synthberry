@@ -9,7 +9,7 @@ class IMidiSource
 public:
     virtual ~IMidiSource(){};
     virtual void run() = 0;
-    virtual Notes getNotes() = 0;
+    virtual Notes& getNotes() = 0;
 };
 
 typedef std::shared_ptr<IMidiSource> PMidiSource;

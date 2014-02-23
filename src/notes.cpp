@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "notes.h"
 
 Notes::Notes()
@@ -19,21 +20,22 @@ void Notes::addNote(uint8_t pitch, uint8_t velocity)
         Note note(pitch, velocity);
         notes.push_back(note);
 
-        for(PNoteObserver observer : observers)
+        for(auto observer : observers)
             observer->noteAdded(note);
     }
 }
 
 void Notes::removeNote(uint8_t pitch)
 {
-    for(std::vector<Note>::iterator it = notes.begin(); it != notes.end(); ++it) {
-        if((*it).getPitch() == pitch) {
-            notes.erase(it);
+    auto pitchCompare = [pitch](Note x) { return x.getPitch() == pitch; };
 
-            for(PNoteObserver observer : observers)
-                observer->noteRemoved(*it);
-        }
-    }
+    for(auto note : notes)
+        if(pitchCompare(note))
+            for(auto observer : observers)
+                observer->noteRemoved(note);
+
+    notes.erase(std::remove_if(notes.begin(), notes.end(), pitchCompare),
+            notes.end());
 }
 
 const std::vector<Note> Notes::getNotes() const
@@ -41,15 +43,13 @@ const std::vector<Note> Notes::getNotes() const
     return notes;
 }
 
-void Notes::registerObserver(PNoteObserver observer)
+void Notes::registerObserver(PNoteObserver &observer)
 {
     observers.push_back(observer);
 }
 
-void Notes::removeObserver(PNoteObserver observer)
+void Notes::removeObserver(PNoteObserver &observer)
 {
-    for(std::vector<PNoteObserver>::iterator it = observers.begin(); it !=
-            observers.end(); ++it)
-        if((*it) == observer)
-            observers.erase(it);
+    observers.erase(std::remove(observers.begin(), observers.end(), observer),
+            observers.end());
 }
