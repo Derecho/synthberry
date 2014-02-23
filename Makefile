@@ -25,9 +25,9 @@ debug-rpi: cross-compile bin/synthberry
 
 cross-compile:
 	$(eval PATH:=$(shell pwd)/externals/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin:$(PATH))
-	$(eval CC=arm-linux-gnueabihf-gcc)
-	$(eval CXX=arm-linux-gnueabihf-g++)
 	$(eval CROSS_COMPILE=arm-linux-gnueabihf)
+	$(eval CC=$(CROSS_COMPILE)-gcc)
+	$(eval CXX=$(CROSS_COMPILE)-g++)
 	$(eval ARCH=arm)
 
 bin/synthberry: libserial $(OBJS)
