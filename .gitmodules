@@ -1,3 +1,6 @@
 [submodule "externals/libserial"]
 	path = externals/libserial
 	url = https://github.com/Derecho/libserial.git
+[submodule "externals/tools"]
+	path = externals/tools
+	url = https://github.com/raspberrypi/tools.git
