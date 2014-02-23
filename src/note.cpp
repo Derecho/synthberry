@@ -10,12 +10,12 @@ Note::~Note()
 {
 }
 
-uint8_t Note::getPitch()
+uint8_t Note::getPitch() const
 {
     return pitch;
 }
 
-uint8_t Note::getVelocity()
+uint8_t Note::getVelocity() const
 {
     return velocity;
 }
