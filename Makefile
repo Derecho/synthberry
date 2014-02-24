@@ -1,3 +1,4 @@
+CC=gcc
 CXX=g++
 CPPFLAGS=-std=c++11 -Wall
 HEADERS=-Isrc -Iexternals/libserial/src
@@ -13,14 +14,14 @@ all: CPPFLAGS+= -O2
 all: bin/synthberry
 	strip bin/synthberry
 
-debug: CPPFLAGS+= -D DEBUG -g
+debug: CPPFLAGS+= -D DEBUG -g3 -ggdb
 debug: bin/synthberry
 
 rpi: CPPFLAGS+= -O2
 rpi: cross-compile bin/synthberry
 	$(CROSS_COMPILE)-strip bin/synthberry
 
-debug-rpi: CPPFLAGS+= -D DEBUG -g
+debug-rpi: CPPFLAGS+= -D DEBUG -g3 -ggdb
 debug-rpi: cross-compile bin/synthberry
 
 cross-compile:
@@ -32,7 +33,7 @@ cross-compile:
 
 bin/synthberry: libserial $(OBJS)
 	mkdir -p bin
-	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o bin/synthberry obj/*.o
+	$(CXX) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS) -o $@ obj/*.o
 
 obj/%.o: src/%.cpp
 	mkdir -p obj
