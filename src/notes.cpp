@@ -12,7 +12,7 @@ Notes::~Notes()
 void Notes::addNote(uint8_t pitch, uint8_t velocity)
 {
     bool present = false;
-    for(Note note : notes)
+    for(auto &note : notes)
         if(note.getPitch() == pitch)
             present = true;
 
@@ -20,21 +20,27 @@ void Notes::addNote(uint8_t pitch, uint8_t velocity)
         Note note(pitch, velocity);
         notes.push_back(note);
 
-        for(auto observer : observers)
+        for(auto &observer : observers)
             observer->noteAdded(note);
     }
 }
 
 void Notes::removeNote(uint8_t pitch)
 {
-    auto pitchCompare = [pitch](Note x) { return x.getPitch() == pitch; };
-
-    for(auto note : notes)
-        if(pitchCompare(note))
-            for(auto observer : observers)
+    // As we're providing a lambda to filter out which Note objects should be
+    // removed, we can do the observer notification here as well to avoid
+    // looping over the notes twice.
+    auto noteRemoveHelper = [this, pitch](Note note) {
+        if(note.getPitch() == pitch) {
+            for(auto &observer : this->observers)
                 observer->noteRemoved(note);
 
-    notes.erase(std::remove_if(notes.begin(), notes.end(), pitchCompare),
+            return true;
+        }
+        return false;
+    };
+
+    notes.erase(std::remove_if(notes.begin(), notes.end(), noteRemoveHelper),
             notes.end());
 }
 
