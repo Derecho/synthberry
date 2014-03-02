@@ -13,16 +13,17 @@ struct CallbackData
 void AlsaCallback(snd_async_handler_t *pcmCallback)
 {
     snd_pcm_t *handle = snd_async_handler_get_pcm(pcmCallback);
-    snd_pcm_uframes_t avail;
+    snd_pcm_uframes_t available;
 
     CallbackData *callbackData = 
         (CallbackData *)snd_async_handler_get_callback_private(pcmCallback);
 
-    avail = snd_pcm_avail_update(handle);
-    while(avail >= callbackData->periodSize) {
-        snd_pcm_writei(handle, callbackData->buffer, callbackData->periodSize);
-        avail = snd_pcm_avail_update(handle);
-        if(avail < 0) {
+    available = snd_pcm_avail_update(handle);
+    while(available >= callbackData->periodSize) {
+        snd_pcm_mmap_writei(handle, callbackData->buffer,
+                callbackData->periodSize);
+        available = snd_pcm_avail_update(handle);
+        if(available < 0) {
             std::cout << "Buffer underrun" << std::endl;
             snd_pcm_prepare(handle);
         }
@@ -31,7 +32,7 @@ void AlsaCallback(snd_async_handler_t *pcmCallback)
 
 int main(int argc, char *argv[])
 {
-    signed int error;
+    int32_t error;
     snd_pcm_t *handle = nullptr;
     std::string deviceName("hw:1");
 
@@ -49,11 +50,11 @@ int main(int argc, char *argv[])
     snd_pcm_hw_params_any(handle, hwParams);
 
     // Set hardware parameters
-    unsigned int bitrate = 48000;
-    snd_pcm_uframes_t bufferSize = 1024;
-    snd_pcm_uframes_t periodSize = 64;
+    uint32_t bitrate = 48000;
+    snd_pcm_uframes_t periodSize = 128;
+    snd_pcm_uframes_t bufferSize = 8*periodSize;
     error = snd_pcm_hw_params_set_access(handle, hwParams,
-            SND_PCM_ACCESS_RW_INTERLEAVED);
+            SND_PCM_ACCESS_MMAP_INTERLEAVED);
     std::cout << "snd_pcm_hw_params_set_access: " << snd_strerror(error) <<
         std::endl;
     error = snd_pcm_hw_params_set_format(handle, hwParams,
@@ -107,19 +108,31 @@ int main(int argc, char *argv[])
     snd_pcm_prepare(handle);
 
     // Create buffer
+    // Note: This is not the buffer alsa uses for playing sound, but our own
+    // buffer where we read the data from that we are passing on to alsa.
+    // We allocate: 2 channels * periodSize amount of frames * size of sample
     int16_t *buffer = (int16_t *)malloc(2*periodSize*sizeof(int16_t));
-    for(unsigned int i = 0; i < periodSize; i++)
+    // Simple square wave, frequency will deviate with the periodSize.
+    for(uint32_t i = 0; i < periodSize; i++)
         buffer[i] = 0x7FFF;
-    for(unsigned int i = periodSize; i < 2*periodSize; i++)
+    for(uint32_t i = periodSize; i < 2*periodSize; i++)
         buffer[i] = 0x0000;
 
-    // Write initial chunk
-    error = snd_pcm_writei(handle, &buffer, 2*periodSize);
+    // Write initial chunk (twice the periodSize)
+    error = snd_pcm_mmap_writei(handle, &buffer, periodSize);
     if(error > 0)
-        std::cout << "snd_pcm_writei: " << error << " frames written" <<
+        std::cout << "snd_pcm_mmap_writei: " << error << " frames written" <<
             std::endl;
     else
-        std::cout << "snd_pcm_writei: " << snd_strerror(error) << std::endl;
+        std::cout << "snd_pcm_mmap_writei: " << snd_strerror(error) <<
+            std::endl;
+    error = snd_pcm_mmap_writei(handle, &buffer, periodSize);
+    if(error > 0)
+        std::cout << "snd_pcm_mmap_writei: " << error << " frames written" <<
+            std::endl;
+    else
+        std::cout << "snd_pcm_mmap_writei: " << snd_strerror(error) <<
+            std::endl;
 
     // Set up callback data struct
     CallbackData *callbackData = (CallbackData *)malloc(sizeof(CallbackData));
