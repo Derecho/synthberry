@@ -4,3 +4,6 @@
 [submodule "externals/tools"]
 	path = externals/tools
 	url = https://github.com/raspberrypi/tools.git
+[submodule "externals/alsa-lib"]
+	path = externals/alsa-lib
+	url = http://git.alsa-project.org/http/alsa-lib.git
