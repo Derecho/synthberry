@@ -9,8 +9,9 @@ class DebugObserver : public INoteObserver
 public:
     DebugObserver();
     ~DebugObserver();
-	void noteAdded(const Note &note);
-	void noteRemoved(const Note &note);
+    void noteAdded(const Note &note);
+    void noteRemoved(const Note &note);
+    void notify(const PNoteObservable &&subject);
 };
 
 #endif  // DEBUGOBSERVER_H

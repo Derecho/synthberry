@@ -23,8 +23,10 @@ void Notes::addNote(uint8_t pitch, uint8_t velocity)
         Note note(pitch, velocity);
         notes.push_back(note);
 
-        for(auto &observer : observers)
+        for(auto &observer : observers) {
+            observer->notify(PNoteObservable(this));
             observer->noteAdded(note);
+        }
     }
 }
 
@@ -35,8 +37,10 @@ void Notes::removeNote(uint8_t pitch)
     // looping over the notes twice.
     auto notifyingPredicate = [this, pitch](Note note) {
         if(note.getPitch() == pitch) {
-            for(auto &observer : this->observers)
+            for(auto &observer : this->observers) {
+                observer->notify(PNoteObservable(this));
                 observer->noteRemoved(note);
+            }
 
             return true;
         }

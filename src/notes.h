@@ -4,9 +4,10 @@
 #include <vector>
 #include <cstdint>
 #include "note.h"
+#include "inoteobservable.h"
 #include "inoteobserver.h"
 
-class Notes
+class Notes : public INoteObservable
 {
 public:
     Notes();

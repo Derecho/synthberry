@@ -19,3 +19,7 @@ void DebugObserver::noteRemoved(const Note &note)
 {
 	LOG("Note " << std::hex << (unsigned int)note.getPitch() << " removed");
 }
+
+void DebugObserver::notify(const PNoteObservable &&subject)
+{
+}
