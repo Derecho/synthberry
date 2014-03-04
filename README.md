@@ -54,5 +54,15 @@ PSR-280). The UART clockrate has been adjusted with boot parameters so that data
 can be received at 31250 baud (looks like 38400 to software).
 
 This kind of setup seems to be quite common, for more information I'd like to
-refer you to:
+refer you to an article on Silicon Stuff:
 http://www.siliconstuff.com/2012/08/serial-port-midi-on-raspberry-pi.html
+
+Since the Raspberry Pi's analogue audio out port only offers 11-bit of sample
+resolution and because the sound is generated using PWM, I'm using a cheap
+chinese USB 1.1 audio card that I had lying around. The card appears to use a
+C-Media chip. Again, using a USB audio card seems to be common with the
+Raspberry Pi.
+
+The Raspberry Pi can *usually* power the USB audio card just fine, but will
+lock up the filesystem or produce no sound once in a while. For this reason I'm
+using a powered USB hub.
