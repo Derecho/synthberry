@@ -2,14 +2,14 @@
 #include <cmath>
 #include "wave.h"
 
-Wave::Wave(uint16_t bitrate) :
+template <class SampleType> Wave<SampleType>::Wave(uint16_t bitrate) :
     bitrate(bitrate),
     changed(true),
     lowestFreq(0)
 {
 }
 
-void Wave::setNewFormula(std::function<void()> func)
+template <class SampleType> void Wave<SampleType>::setNewFormula(std::function<void()> func)
 {
     formula.clear();
     changed = true;
@@ -17,31 +17,31 @@ void Wave::setNewFormula(std::function<void()> func)
     addToFormula(func);
 }
 
-void Wave::addToFormula(std::function<void()> func)
+template <class SampleType> void Wave<SampleType>::addToFormula(std::function<void()> func)
 {
     changed = true;
     formula.push_back(func);
 }
 
-void Wave::setLowestFrequency(float freq)
+template <class SampleType> void Wave<SampleType>::setLowestFrequency(float freq)
 {
     if((freq < lowestFreq) || (lowestFreq == 0)) {
         changed = true;
         lowestFreq = freq;
-        bufferSize = std::ceil(bitrate/freq) * sizeof(uint16_t);
+        bufferSize = std::ceil(bitrate/freq) * sizeof(SampleType);
         free(buffer);
-        buffer = static_cast<uint16_t *>(malloc(bufferSize));
+        buffer = static_cast<SampleType *>(malloc(bufferSize));
         if(buffer == nullptr)
             throw std::bad_alloc();
     }
 }
 
-float Wave::getLowestFrequency()
+template <class SampleType> float Wave<SampleType>::getLowestFrequency()
 {
     return lowestFreq;
 }
 
-void Wave::updateBuffer()
+template <class SampleType> void Wave<SampleType>::updateBuffer()
 {
     if(changed) {
         changed = false;

@@ -5,12 +5,12 @@
 #include <vector>
 #include <cstdint>
 
-class Wave
+template <class SampleType> class Wave
 {
 public:
     Wave(uint16_t bitrate);
     virtual ~Wave(){};
-    virtual uint16_t getNextSample() = 0;
+    virtual SampleType getNextSample() = 0;
     void setNewFormula(std::function<void()> func);
     void addToFormula(std::function<void()> func);
     void setLowestFrequency(float freq);
@@ -18,7 +18,7 @@ public:
     void updateBuffer();
 
 protected:
-    uint16_t *buffer;
+    SampleType *buffer;
     std::size_t bufferSize;
 
 private:
