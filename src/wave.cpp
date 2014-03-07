@@ -3,10 +3,18 @@
 #include "wave.h"
 
 template <class SampleType> Wave<SampleType>::Wave(uint16_t bitrate) :
+    buffer(nullptr),
+    bufferSize(0),
     bitrate(bitrate),
     changed(true),
     lowestFreq(0)
 {
+}
+
+template <class SampleType> Wave<SampleType>::~Wave()
+{
+    if(buffer)
+        free(buffer);
 }
 
 template <class SampleType> void Wave<SampleType>::setNewFormula(std::function<void()> func)
@@ -29,7 +37,8 @@ template <class SampleType> void Wave<SampleType>::setLowestFrequency(float freq
         changed = true;
         lowestFreq = freq;
         bufferSize = std::ceil(bitrate/freq) * sizeof(SampleType);
-        free(buffer);
+        if(buffer)
+            free(buffer);
         buffer = static_cast<SampleType *>(malloc(bufferSize));
         if(buffer == nullptr)
             throw std::bad_alloc();

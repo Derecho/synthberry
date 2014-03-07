@@ -9,7 +9,7 @@ template <class SampleType> class Wave
 {
 public:
     Wave(uint16_t bitrate);
-    virtual ~Wave(){};
+    virtual ~Wave();
     virtual SampleType getNextSample() = 0;
     void setNewFormula(std::function<void()> func);
     void addToFormula(std::function<void()> func);
