@@ -5,7 +5,7 @@
 #include "note.h"
 
 class INoteObservable;
-typedef std::shared_ptr<INoteObservable> PNoteObservable;
+using PNoteObservable = std::shared_ptr<INoteObservable>;
 
 class INoteObserver
 {
@@ -16,6 +16,6 @@ public:
     virtual void notify(const PNoteObservable &&subject) = 0;
 };
 
-typedef std::shared_ptr<INoteObserver> PNoteObserver;
+using PNoteObserver = std::shared_ptr<INoteObserver>;
 
 #endif  // INOTEOBSERVER_H

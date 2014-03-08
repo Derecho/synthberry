@@ -12,6 +12,6 @@ public:
     virtual Notes& getNotes() = 0;
 };
 
-typedef std::shared_ptr<IMidiSource> PMidiSource;
+using PMidiSource = std::shared_ptr<IMidiSource>;
 
 #endif  // IMIDISOURCE_H
