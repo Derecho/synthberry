@@ -5,14 +5,18 @@
 #include <vector>
 #include <cstdint>
 
+
 template <class SampleType> class Wave
 {
+// FormulaFunction(*buffer, bufferSize, bitrate)
+using FormulaFunction = std::function<void(SampleType*, std::size_t, uint16_t)>;
+
 public:
     Wave(uint16_t bitrate);
     virtual ~Wave();
     virtual SampleType getNextSample() = 0;
-    void setNewFormula(std::function<void()> func);
-    void addToFormula(std::function<void()> func);
+    void setNewFormula(FormulaFunction func);
+    void addToFormula(FormulaFunction func);
     void setLowestFrequency(float freq);
     float getLowestFrequency();
     void updateBuffer();
@@ -22,8 +26,7 @@ protected:
     std::size_t bufferSize;
 
 private:
-    // TODO Change function type
-    std::vector<std::function<void()> > formula;
+    std::vector<FormulaFunction> formula;
     uint16_t bitrate;
     bool changed;
     float lowestFreq;

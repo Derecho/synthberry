@@ -17,7 +17,7 @@ template <class SampleType> Wave<SampleType>::~Wave()
         free(buffer);
 }
 
-template <class SampleType> void Wave<SampleType>::setNewFormula(std::function<void()> func)
+template <class SampleType> void Wave<SampleType>::setNewFormula(FormulaFunction func)
 {
     formula.clear();
     changed = true;
@@ -25,7 +25,7 @@ template <class SampleType> void Wave<SampleType>::setNewFormula(std::function<v
     addToFormula(func);
 }
 
-template <class SampleType> void Wave<SampleType>::addToFormula(std::function<void()> func)
+template <class SampleType> void Wave<SampleType>::addToFormula(FormulaFunction func)
 {
     changed = true;
     formula.push_back(func);
@@ -54,6 +54,7 @@ template <class SampleType> void Wave<SampleType>::updateBuffer()
 {
     if(changed) {
         changed = false;
-        // TODO Fill buffer with all result of all formulas
+        for(auto func : formula)
+            func(buffer, bufferSize, bitrate);
     }
 }
