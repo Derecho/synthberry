@@ -1,7 +1,7 @@
 CC=gcc
 CXX=g++
 CPPFLAGS=-std=c++11 -Wall
-HEADERS=-Isrc -Iexternals/libserial/src -Iexternals/alsa-lib/include
+HEADERS=-Iinclude -Iexternals/libserial/src -Iexternals/alsa-lib/include
 LDFLAGS=-Lsrc -Lexternals/libserial/src/.libs -Lexternals/alsa-lib/src/.libs
 LDLIBS=-lserial -lasound
 
