@@ -17,7 +17,7 @@ template <class SampleType> Synthesizer<SampleType>::~Synthesizer()
 
 /*! \brief Set a midi source
  *
- * Set a class implementing IMidiSource as the midi source for this Synthesizer.
+ * Set an object implementing IMidiSource as the midi source for this Synthesizer.
  *
  * \param source Shared pointer to IMidiSource implementation
  *
@@ -30,7 +30,7 @@ template <class SampleType> void Synthesizer<SampleType>::setMidiSource(
 
 /*! \brief Add a note observer
  *
- * Add a class implementing INoteObserver to Synthesizer. The class will be
+ * Add an object implementing INoteObserver to Synthesizer. The object will be
  * notified of note changes from midi sources in Synthesizer.
  *
  * \param observer Shared pointer to INoteObserver implementation
