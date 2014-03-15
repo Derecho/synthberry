@@ -7,6 +7,12 @@
 #include <vector>
 #include <cstdint>
 
+/*! \brief Top-level class representing a synthesizer setup
+ *
+ * The Synthesizer class represents a complete synthesizer system that consists
+ * of an input, output and modules such as an oscillator and envelope generator.
+ *
+ */
 template <class SampleType> class Synthesizer
 {
 public:
