@@ -43,6 +43,9 @@ This target depends on `doxygen` and `dot` (part of graphviz). By default only
 the HTML documentation is generated. A number of other formats are available
 and can be enabled by editing the Doxygen configuration file.
 
+Up-to-date documentation can also be found at:
+http://derecho.github.io/synthberry
+
 Detailed documentation for the current source is under way.
 
 ## Current status

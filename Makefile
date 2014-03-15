@@ -8,7 +8,7 @@ LDLIBS=-lserial -lasound
 SRCS=$(wildcard src/*.cpp)
 OBJS=$(subst src,obj,$(subst .cpp,.o,$(SRCS)))
 
-.PHONY: all rpi debug debug-rpi cross-compile help clean distclean
+.PHONY: all rpi debug debug-rpi doc gitcommit cross-compile help clean distclean
 
 all: CPPFLAGS+= -O2
 all: bin/synthberry
