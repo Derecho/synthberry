@@ -24,6 +24,9 @@ rpi: cross-compile bin/synthberry
 debug-rpi: CPPFLAGS+= -D DEBUG -g3 -ggdb
 debug-rpi: cross-compile bin/synthberry
 
+doc:
+	doxygen
+
 # Temporary
 alsapoc: CPPFLAGS+= -D DEBUG -g3 -ggdb
 alsapoc: bin/alsapoc
@@ -81,4 +84,4 @@ clean:
 distclean: clean
 	-make -C externals/libserial distclean
 	-make -C externals/alsa-lib distclean
-	rm -f libserial libasound
+	rm -rf libserial libasound doc
