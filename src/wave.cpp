@@ -74,8 +74,10 @@ template <class SampleType> void Wave<SampleType>::setLowestFrequency(float freq
 
 /*! \brief Retrieve the lowest frequency
  *
- * Retrieve the lowest known frequency component (in Hz) that was set on an
- * earlier occasion.
+ * Retrieve the lowest known frequency component that was set on an earlier
+ * occasion.
+ *
+ * \return Frequency in Hz
  *
  */
 template <class SampleType> float Wave<SampleType>::getLowestFrequency()

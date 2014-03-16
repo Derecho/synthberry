@@ -23,6 +23,8 @@ template <class SampleType> BasicWave<SampleType>::~BasicWave()
  * has been reached, getNextSample() will automatically return to the beginning
  * of the buffer.
  *
+ * \return Next sample
+ *
  */
 template <class SampleType> SampleType BasicWave<SampleType>::getNextSample()
 {
