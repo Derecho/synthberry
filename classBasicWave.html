@@ -88,40 +88,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">BasicWave&lt; SampleType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Representation of a basic wave.  
+ <a href="classBasicWave.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="basicwave_8h_source.html">basicwave.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BasicWave&lt; SampleType &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBasicWave__inherit__graph.png" border="0" usemap="#BasicWave_3_01SampleType_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="BasicWave_3_01SampleType_01_4_inherit__map" id="BasicWave_3_01SampleType_01_4_inherit__map">
-<area shape="rect" id="node2" href="classWave.html" title="Wave\&lt; SampleType \&gt;" alt="" coords="23,5,175,35"/></map>
+<area shape="rect" id="node2" href="classWave.html" title="Abstract class used for generating and storing wave buffers." alt="" coords="23,5,175,35"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for BasicWave&lt; SampleType &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBasicWave__coll__graph.png" border="0" usemap="#BasicWave_3_01SampleType_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="BasicWave_3_01SampleType_01_4_coll__map" id="BasicWave_3_01SampleType_01_4_coll__map">
-<area shape="rect" id="node2" href="classWave.html" title="Wave\&lt; SampleType \&gt;" alt="" coords="23,5,175,35"/></map>
+<area shape="rect" id="node2" href="classWave.html" title="Abstract class used for generating and storing wave buffers." alt="" coords="23,5,175,35"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a261f47b441966a8c00dec3180549d3be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a261f47b441966a8c00dec3180549d3be"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BasicWave</b> (uint16_t bitrate)</td></tr>
-<tr class="memitem:abc8a76b57abd2f62eb022503b0047666"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc8a76b57abd2f62eb022503b0047666"></a>
-SampleType&#160;</td><td class="memItemRight" valign="bottom"><b>getNextSample</b> ()</td></tr>
+<tr class="memitem:a261f47b441966a8c00dec3180549d3be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBasicWave.html#a261f47b441966a8c00dec3180549d3be">BasicWave</a> (uint16_t bitrate)</td></tr>
+<tr class="memitem:abc8a76b57abd2f62eb022503b0047666"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBasicWave.html#abc8a76b57abd2f62eb022503b0047666">getNextSample</a> ()</td></tr>
+<tr class="memdesc:abc8a76b57abd2f62eb022503b0047666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve next sample to play.  <a href="#abc8a76b57abd2f62eb022503b0047666"></a><br/></td></tr>
 <tr class="inherit_header pub_methods_classWave"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classWave')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classWave.html">Wave< SampleType ></a></td></tr>
 <tr class="memitem:afa9baa35ddc4778d10706631dcd2c340 inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa9baa35ddc4778d10706631dcd2c340"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Wave</b> (uint16_t bitrate)</td></tr>
-<tr class="memitem:a5e48493b1d534a660245251f37e738bd inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e48493b1d534a660245251f37e738bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNewFormula</b> (FormulaFunction func)</td></tr>
-<tr class="memitem:a0f6a337449236f7e22c3f9239d882a5a inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0f6a337449236f7e22c3f9239d882a5a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addToFormula</b> (FormulaFunction func)</td></tr>
-<tr class="memitem:a0c9b706b00099bc1fa000c58fe304be8 inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c9b706b00099bc1fa000c58fe304be8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLowestFrequency</b> (float freq)</td></tr>
-<tr class="memitem:a5d34e07e8c7d673d08f0e37600b03567 inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d34e07e8c7d673d08f0e37600b03567"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getLowestFrequency</b> ()</td></tr>
-<tr class="memitem:a90c911861d8a968fb85b03a4c4d3e71f inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90c911861d8a968fb85b03a4c4d3e71f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateBuffer</b> ()</td></tr>
+<tr class="memitem:a5e48493b1d534a660245251f37e738bd inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWave.html#a5e48493b1d534a660245251f37e738bd">setNewFormula</a> (FormulaFunction func)</td></tr>
+<tr class="memdesc:a5e48493b1d534a660245251f37e738bd inherit pub_methods_classWave"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new formula.  <a href="#a5e48493b1d534a660245251f37e738bd"></a><br/></td></tr>
+<tr class="memitem:a0f6a337449236f7e22c3f9239d882a5a inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWave.html#a0f6a337449236f7e22c3f9239d882a5a">addToFormula</a> (FormulaFunction func)</td></tr>
+<tr class="memdesc:a0f6a337449236f7e22c3f9239d882a5a inherit pub_methods_classWave"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an extra formula.  <a href="#a0f6a337449236f7e22c3f9239d882a5a"></a><br/></td></tr>
+<tr class="memitem:a0c9b706b00099bc1fa000c58fe304be8 inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWave.html#a0c9b706b00099bc1fa000c58fe304be8">setLowestFrequency</a> (float freq)</td></tr>
+<tr class="memdesc:a0c9b706b00099bc1fa000c58fe304be8 inherit pub_methods_classWave"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new lowest frequency.  <a href="#a0c9b706b00099bc1fa000c58fe304be8"></a><br/></td></tr>
+<tr class="memitem:a5d34e07e8c7d673d08f0e37600b03567 inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWave.html#a5d34e07e8c7d673d08f0e37600b03567">getLowestFrequency</a> ()</td></tr>
+<tr class="memdesc:a5d34e07e8c7d673d08f0e37600b03567 inherit pub_methods_classWave"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the lowest frequency.  <a href="#a5d34e07e8c7d673d08f0e37600b03567"></a><br/></td></tr>
+<tr class="memitem:a90c911861d8a968fb85b03a4c4d3e71f inherit pub_methods_classWave"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWave.html#a90c911861d8a968fb85b03a4c4d3e71f">updateBuffer</a> ()</td></tr>
+<tr class="memdesc:a90c911861d8a968fb85b03a4c4d3e71f inherit pub_methods_classWave"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the wave buffer.  <a href="#a90c911861d8a968fb85b03a4c4d3e71f"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -135,16 +139,80 @@ std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>bufferSize</b>
 <div class="textblock"><h3>template&lt;class SampleType&gt;<br/>
 class BasicWave&lt; SampleType &gt;</h3>
 
+<p>Representation of a basic wave. </p>
+<p><a class="el" href="classBasicWave.html" title="Representation of a basic wave.">BasicWave</a> is the simplest implementation of the abstract <a class="el" href="classWave.html" title="Abstract class used for generating and storing wave buffers.">Wave</a> class. Oscillators create instances of <a class="el" href="classBasicWave.html" title="Representation of a basic wave.">BasicWave</a>, which can later on be upgraded to EnvelopedWave objects should the need occur. </p>
 
-<p>Definition at line <a class="el" href="basicwave_8h_source.html#l00006">6</a> of file <a class="el" href="basicwave_8h_source.html">basicwave.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p>Definition at line <a class="el" href="basicwave_8h_source.html#l00013">13</a> of file <a class="el" href="basicwave_8h_source.html">basicwave.h</a>.</p>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a261f47b441966a8c00dec3180549d3be"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classBasicWave.html">BasicWave</a>&lt; SampleType &gt;::<a class="el" href="classBasicWave.html">BasicWave</a> </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>bitrate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construct a <a class="el" href="classBasicWave.html" title="Representation of a basic wave.">BasicWave</a></p>
+<p>When working with 16-bit samples, set uint16_t as the SampleType.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SampleType</td><td>Integer type for storing sample in </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="basicwave_8cpp_source.html#l00010">10</a> of file <a class="el" href="basicwave_8cpp_source.html">basicwave.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="abc8a76b57abd2f62eb022503b0047666"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classBasicWave.html">BasicWave</a>&lt; SampleType &gt;::getNextSample </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve next sample to play. </p>
+<p>Retrieve the next sample from the buffer to play. If the end of the buffer has been reached, <a class="el" href="classBasicWave.html#abc8a76b57abd2f62eb022503b0047666" title="Retrieve next sample to play.">getNextSample()</a> will automatically return to the beginning of the buffer. </p>
+
+<p>Implements <a class="el" href="classWave.html">Wave&lt; SampleType &gt;</a>.</p>
+
+<p>Definition at line <a class="el" href="basicwave_8cpp_source.html#l00027">27</a> of file <a class="el" href="basicwave_8cpp_source.html">basicwave.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="basicwave_8h_source.html">basicwave.h</a></li>
 <li>src/<a class="el" href="basicwave_8cpp_source.html">basicwave.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 15 2014 20:19:08 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 16 2014 17:39:24 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

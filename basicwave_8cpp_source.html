@@ -88,27 +88,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;basicwave.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> SampleType&gt; <a class="code" href="classBasicWave.html">BasicWave&lt;SampleType&gt;::BasicWave</a>(uint16_t bitrate) :</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <a class="code" href="classWave.html">Wave</a>&lt;SampleType&gt;(bitrate),</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    position(0)</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> SampleType&gt; <a class="code" href="classBasicWave.html">BasicWave&lt;SampleType&gt;::~BasicWave</a>()</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> SampleType&gt; SampleType <a class="code" href="classBasicWave.html">BasicWave&lt;SampleType&gt;::getNextSample</a>()</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">if</span>(position == this-&gt;bufferSize)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        position = 0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> this-&gt;buffer[position++];</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classBasicWave.html#a261f47b441966a8c00dec3180549d3be">   10</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> SampleType&gt; <a class="code" href="classBasicWave.html#a261f47b441966a8c00dec3180549d3be">BasicWave&lt;SampleType&gt;::BasicWave</a>(uint16_t bitrate) :</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classWave.html" title="Abstract class used for generating and storing wave buffers.">Wave</a>&lt;SampleType&gt;(bitrate),</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    position(0)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> SampleType&gt; <a class="code" href="classBasicWave.html" title="Representation of a basic wave.">BasicWave&lt;SampleType&gt;::~BasicWave</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classBasicWave.html#abc8a76b57abd2f62eb022503b0047666">   27</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> SampleType&gt; SampleType <a class="code" href="classBasicWave.html#abc8a76b57abd2f62eb022503b0047666" title="Retrieve next sample to play.">BasicWave&lt;SampleType&gt;::getNextSample</a>()</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(position == this-&gt;bufferSize)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        position = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> this-&gt;buffer[position++];</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 15 2014 20:19:08 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 16 2014 17:39:24 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
