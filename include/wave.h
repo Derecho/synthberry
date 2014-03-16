@@ -6,6 +6,22 @@
 #include <cstdint>
 
 
+/*! \brief Abstract class used for generating and storing wave buffers
+ *
+ * The abstract Wave class provides a generic approach to store waves. A Wave
+ * represents the sound associated with a note being played, along with any
+ * additional effects. IAudioOutput implementations deal with the abstract Wave,
+ * leaving SynthModule classes with the flexibility of choosing or even
+ * introducing their own subclasses of Wave.
+ *
+ * A sound is constructed by setting a formula that generates the data for the
+ * wave. SynthModule classes can add more formulas to the initial one to apply
+ * any required effects. These formulas are implemented as functions and are
+ * called sequentially upon generation of the buffer.
+ *
+ * Wave needs to know the lowest frequency present in the sound to accommodate
+ * for a buffer which can hold at least one full period.
+ */
 template <class SampleType> class Wave
 {
 // FormulaFunction(*buffer, bufferSize, bitrate)
