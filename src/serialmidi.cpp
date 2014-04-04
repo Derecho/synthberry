@@ -1,6 +1,14 @@
 #include <iostream>
 #include "serialmidi.h"
 
+/*!
+ * Construct a SerialMidi object.
+ *
+ * Use "/dev/ttyAMA0" for the serialPath on the Raspberry Pi.
+ *
+ * \param serialPath Path pointing to serial device on which MIDI messages are
+ * received.
+ */
 SerialMidi::SerialMidi(std::string serialPath) :
     serialStream(serialPath),
     channel(0),  // Hardcoded for now
@@ -18,6 +26,13 @@ SerialMidi::~SerialMidi()
     serialStream.Close();
 }
 
+/*! \brief Parse MIDI messages.
+ *
+ * Start parsing MIDI data on the serial connection. This is a blocking call.
+ * Any received notes will be stored in the Notes object to which a reference
+ * can be retrieved with getNotes().
+ *
+ */
 void SerialMidi::run()
 {
     uint8_t pos = 0;
@@ -63,6 +78,12 @@ void SerialMidi::run()
     }
 }
 
+/*! \brief Get Notes reference.
+ *
+ * Get a reference to the Notes object which receives its notes from the parsed
+ * MIDI data.
+ *
+ */
 Notes& SerialMidi::getNotes()
 {
     return notes;
