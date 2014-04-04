@@ -95,28 +95,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;notes.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;midistatus.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classSerialMidi.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSerialMidi.html">SerialMidi</a> : <span class="keyword">public</span> <a class="code" href="classIMidiSource.html">IMidiSource</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classSerialMidi.html">SerialMidi</a>(std::string serialPath);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    ~<a class="code" href="classSerialMidi.html">SerialMidi</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">void</span> run();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classNotes.html">Notes</a>&amp; getNotes();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> parseMessage();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    LibSerial::SerialStream serialStream;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    uint8_t channel;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classNotes.html">Notes</a> notes;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    MidiStatus status;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    uint8_t data[2];  <span class="comment">// MIDI Channel Messages have 2 data bytes at most</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif  // SERIALMIDI_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classSerialMidi.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSerialMidi.html" title="Class for using a serial connection as a MIDI source.">SerialMidi</a> : <span class="keyword">public</span> <a class="code" href="classIMidiSource.html">IMidiSource</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classSerialMidi.html#aec6fc75e28ea5c1b473b608e1594d2dd">SerialMidi</a>(std::string serialPath);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ~<a class="code" href="classSerialMidi.html" title="Class for using a serial connection as a MIDI source.">SerialMidi</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSerialMidi.html#ac9da8f40bf574c964fedb7b1621d0491" title="Parse MIDI messages.">run</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classNotes.html">Notes</a>&amp; <a class="code" href="classSerialMidi.html#a633c4c1869a0e53154dd4ab09b3a8b20" title="Get Notes reference.">getNotes</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> parseMessage();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    LibSerial::SerialStream serialStream;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    uint8_t channel;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classNotes.html">Notes</a> notes;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    MidiStatus status;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    uint8_t data[2];  <span class="comment">// MIDI Channel Messages have 2 data bytes at most</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif  // SERIALMIDI_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 16 2014 17:55:47 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:15:23 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

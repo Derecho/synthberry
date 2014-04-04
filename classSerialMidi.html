@@ -88,6 +88,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">SerialMidi Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for using a serial connection as a MIDI source.  
+ <a href="classSerialMidi.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="serialmidi_8h_source.html">serialmidi.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for SerialMidi:</div>
 <div class="dyncontent">
@@ -105,24 +110,115 @@ Collaboration diagram for SerialMidi:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aec6fc75e28ea5c1b473b608e1594d2dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec6fc75e28ea5c1b473b608e1594d2dd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SerialMidi</b> (std::string serialPath)</td></tr>
-<tr class="memitem:ac9da8f40bf574c964fedb7b1621d0491"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac9da8f40bf574c964fedb7b1621d0491"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
-<tr class="memitem:a633c4c1869a0e53154dd4ab09b3a8b20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a633c4c1869a0e53154dd4ab09b3a8b20"></a>
-<a class="el" href="classNotes.html">Notes</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getNotes</b> ()</td></tr>
+<tr class="memitem:aec6fc75e28ea5c1b473b608e1594d2dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialMidi.html#aec6fc75e28ea5c1b473b608e1594d2dd">SerialMidi</a> (std::string serialPath)</td></tr>
+<tr class="memitem:ac9da8f40bf574c964fedb7b1621d0491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialMidi.html#ac9da8f40bf574c964fedb7b1621d0491">run</a> ()</td></tr>
+<tr class="memdesc:ac9da8f40bf574c964fedb7b1621d0491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse MIDI messages.  <a href="#ac9da8f40bf574c964fedb7b1621d0491"></a><br/></td></tr>
+<tr class="memitem:a633c4c1869a0e53154dd4ab09b3a8b20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNotes.html">Notes</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSerialMidi.html#a633c4c1869a0e53154dd4ab09b3a8b20">getNotes</a> ()</td></tr>
+<tr class="memdesc:a633c4c1869a0e53154dd4ab09b3a8b20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="classNotes.html">Notes</a> reference.  <a href="#a633c4c1869a0e53154dd4ab09b3a8b20"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="serialmidi_8h_source.html#l00010">10</a> of file <a class="el" href="serialmidi_8h_source.html">serialmidi.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Class for using a serial connection as a MIDI source. </p>
+<p><a class="el" href="classSerialMidi.html" title="Class for using a serial connection as a MIDI source.">SerialMidi</a> is a class implementing <a class="el" href="classIMidiSource.html">IMidiSource</a>, parsing MIDI messages received on the given serial port.</p>
+<p>The baudrate is statically set to 38400, which corresponds to 31250 on a Raspberry Pi with modified serial clock.</p>
+<p><a class="el" href="classSerialMidi.html" title="Class for using a serial connection as a MIDI source.">SerialMidi</a> parses NoteOn and NoteOff messages destined to channel 0. </p>
+
+<p>Definition at line <a class="el" href="serialmidi_8h_source.html#l00021">21</a> of file <a class="el" href="serialmidi_8h_source.html">serialmidi.h</a>.</p>
+</div><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aec6fc75e28ea5c1b473b608e1594d2dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SerialMidi::SerialMidi </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>serialPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construct a <a class="el" href="classSerialMidi.html" title="Class for using a serial connection as a MIDI source.">SerialMidi</a> object.</p>
+<p>Use "/dev/ttyAMA0" for the serialPath on the Raspberry Pi.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serialPath</td><td>Path pointing to serial device on which MIDI messages are received. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="serialmidi_8cpp_source.html#l00012">12</a> of file <a class="el" href="serialmidi_8cpp_source.html">serialmidi.cpp</a>.</p>
+
+</div>
+</div>
+<h2>Member Function Documentation</h2>
+<a class="anchor" id="a633c4c1869a0e53154dd4ab09b3a8b20"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNotes.html">Notes</a> &amp; SerialMidi::getNotes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get <a class="el" href="classNotes.html">Notes</a> reference. </p>
+<p>Get a reference to the <a class="el" href="classNotes.html">Notes</a> object which receives its notes from the parsed MIDI data. </p>
+
+<p>Implements <a class="el" href="classIMidiSource.html">IMidiSource</a>.</p>
+
+<p>Definition at line <a class="el" href="serialmidi_8cpp_source.html#l00087">87</a> of file <a class="el" href="serialmidi_8cpp_source.html">serialmidi.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9da8f40bf574c964fedb7b1621d0491"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SerialMidi::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parse MIDI messages. </p>
+<p>Start parsing MIDI data on the serial connection. This is a blocking call. Any received notes will be stored in the <a class="el" href="classNotes.html">Notes</a> object to which a reference can be retrieved with <a class="el" href="classSerialMidi.html#a633c4c1869a0e53154dd4ab09b3a8b20" title="Get Notes reference.">getNotes()</a>. </p>
+
+<p>Implements <a class="el" href="classIMidiSource.html">IMidiSource</a>.</p>
+
+<p>Definition at line <a class="el" href="serialmidi_8cpp_source.html#l00036">36</a> of file <a class="el" href="serialmidi_8cpp_source.html">serialmidi.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="serialmidi_8h_source.html">serialmidi.h</a></li>
 <li>src/<a class="el" href="serialmidi_8cpp_source.html">serialmidi.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 16 2014 17:55:47 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 4 2014 10:15:23 for synthberry by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
